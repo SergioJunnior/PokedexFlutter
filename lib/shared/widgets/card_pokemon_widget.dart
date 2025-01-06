@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_pokedex/domain/entities/type_entity.dart';
+
+import '../../domain/entities/pokemon_color.dart';
 
 class CardPokemonWidget extends StatelessWidget {
   const CardPokemonWidget({
@@ -6,6 +9,7 @@ class CardPokemonWidget extends StatelessWidget {
     required this.name,
     required this.color,
     required this.image,
+    required this.pokemonType,
     this.icon,
     super.key,
   });
@@ -13,12 +17,13 @@ class CardPokemonWidget extends StatelessWidget {
   final String name;
   final Color color;
   final String image;
+  final List<TypeEntity> pokemonType;
   final IconData? icon;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 110,
+      height: 115,
       margin: const EdgeInsetsDirectional.only(bottom: 8),
       decoration: BoxDecoration(
         color: color.withOpacity(0.2),
@@ -49,18 +54,37 @@ class CardPokemonWidget extends StatelessWidget {
                 const SizedBox(
                   height: 4,
                 ),
-                Container(
-                  height: 25,
-                  width: 100,
-                  decoration: BoxDecoration(
-                    color: color,
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  child: Icon(
-                    icon,
-                    size: 16,
-                    color: Colors.white,
-                  ),
+                Row(
+                  children: pokemonType.map((pokemonType) {
+                    return Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: Container(
+                        height: 25,
+                        width: 100,
+                        decoration: BoxDecoration(
+                          color: PokemonType.values
+                              .firstWhere(
+                                (type) =>
+                                    type.tag.name == pokemonType.type.name,
+                              )
+                              .tag
+                              .color,
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: Icon(
+                          PokemonType.values
+                              .firstWhere(
+                                (type) =>
+                                    type.tag.name == pokemonType.type.name,
+                              )
+                              .tag
+                              .icon,
+                          size: 16,
+                          color: Colors.white,
+                        ),
+                      ),
+                    );
+                  }).toList(),
                 ),
               ],
             ),
@@ -83,7 +107,7 @@ class CardPokemonWidget extends StatelessWidget {
                 ),
               ],
             ),
-          ),
+          )
         ],
       ),
     );

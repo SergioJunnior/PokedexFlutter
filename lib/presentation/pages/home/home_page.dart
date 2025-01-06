@@ -27,12 +27,12 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     searchPokemon = TextEditingController();
     controller = Dependencies.I<HomeController>();
-    controller.fetchPokemonList(limit: 50);
+    controller.fetchPokemonList(limit: 1000);
     _scrollController.addListener(() {
       if (_scrollController.position.pixels ==
               _scrollController.position.maxScrollExtent &&
           !controller.isLoading) {
-        controller.fetchPokemonList(limit: 50);
+        controller.fetchPokemonList(limit: 1000);
       }
     });
 
@@ -105,7 +105,7 @@ class _HomePageState extends State<HomePage> {
             itemCount: filteredPokemonList.isEmpty
                 ? 1
                 : filteredPokemonList.length + 1,
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(14),
             itemBuilder: (context, index) {
               if (filteredPokemonList.isEmpty) {
                 return const Center(
@@ -129,6 +129,7 @@ class _HomePageState extends State<HomePage> {
                 image: pokemon.sprites.other?.showdown?.frontDefault ?? '',
                 color: pokemonType.tag.color,
                 icon: pokemonType.tag.icon,
+                pokemonType: pokemon.types,
               );
             },
           );
