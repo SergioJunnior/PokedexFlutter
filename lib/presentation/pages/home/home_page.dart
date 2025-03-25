@@ -27,12 +27,12 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     searchPokemon = TextEditingController();
     controller = Dependencies.I<HomeController>();
-    controller.fetchPokemonList(limit: 1000);
+    controller.fetchPokemonList(limit: 50);
     _scrollController.addListener(() {
       if (_scrollController.position.pixels ==
               _scrollController.position.maxScrollExtent &&
           !controller.isLoading) {
-        controller.fetchPokemonList(limit: 1000);
+        controller.fetchPokemonList(limit: 50);
       }
     });
 
