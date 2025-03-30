@@ -62,7 +62,7 @@ class CardPokemonWidget extends StatelessWidget {
                       padding: const EdgeInsets.only(right: 8),
                       child: Container(
                         height: 25,
-                        width: 100,
+                        width: 50,
                         decoration: BoxDecoration(
                           color: PokemonType.values
                               .firstWhere(
