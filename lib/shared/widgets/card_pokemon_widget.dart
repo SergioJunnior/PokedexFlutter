@@ -26,7 +26,9 @@ class CardPokemonWidget extends StatelessWidget {
       height: 115,
       margin: const EdgeInsetsDirectional.only(bottom: 8),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.2),
+        color: color.withAlpha(
+          (0.2 * 255).toInt(),
+        ),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Row(
@@ -103,7 +105,9 @@ class CardPokemonWidget extends StatelessWidget {
                 Icon(
                   icon,
                   size: 100,
-                  color: Colors.white.withOpacity(0.2),
+                  color: Colors.white.withAlpha(
+                    (0.2 * 255).toInt(),
+                  ),
                 ),
               ],
             ),
