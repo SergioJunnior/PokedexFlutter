@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:projeto_pokedex/shared/assets/assets.dart';
 
 class SplashPage extends StatefulWidget {
-  final Widget initialRoute;
+  final String initialRoute;
   const SplashPage({super.key, required this.initialRoute});
 
   @override
@@ -23,9 +24,7 @@ class _SplashPageState extends State<SplashPage>
     _colorAnimation =
         ColorTween(begin: Colors.red, end: Colors.blue).animate(_controller);
     Future.delayed(const Duration(seconds: 2), () {
-      // ignore: use_build_context_synchronously
-      Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (context) => widget.initialRoute));
+      context.go(widget.initialRoute);
     });
   }
 
@@ -47,7 +46,11 @@ class _SplashPageState extends State<SplashPage>
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset(height: 80, fit: BoxFit.cover, Assets.pokemonLogo),
+              Image.asset(
+                height: 80,
+                fit: BoxFit.cover,
+                Assets.pokemonLogo,
+              ),
               const SizedBox(height: 100),
               AnimatedBuilder(
                 animation: _colorAnimation,

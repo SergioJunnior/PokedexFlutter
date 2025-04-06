@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:projeto_pokedex/core/dependencies/dependencies_get_it.dart';
 import 'package:projeto_pokedex/domain/entities/pokemon_color.dart';
-import 'package:projeto_pokedex/shared/widgets/card_pokemon_widget.dart';
-import 'package:projeto_pokedex/shared/widgets/loading_widget_vertical.dart';
-import 'package:projeto_pokedex/shared/widgets/search_widget.dart';
+import 'package:projeto_pokedex/design_system/widgets/card_pokemon_widget.dart';
+import 'package:projeto_pokedex/design_system/widgets/loading_widget_vertical.dart';
+import 'package:projeto_pokedex/design_system/widgets/search_widget.dart';
 
 import 'home_controller.dart';
 
