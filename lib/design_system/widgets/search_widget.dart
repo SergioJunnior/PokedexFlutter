@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../assets/assets.dart';
+import '../../shared/assets/assets.dart';
 
 class SearchWidget extends StatelessWidget {
   const SearchWidget({

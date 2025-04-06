@@ -8,7 +8,7 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: Routes.splash,
       builder: (context, state) => const SplashPage(
-        initialRoute: HomePage(),
+        initialRoute: Routes.home,
       ),
     ),
     GoRoute(path: Routes.home, builder: (context, state) => const HomePage()),
